@@ -1,0 +1,24 @@
+@use '../variables';
+
+.header {
+    color: variables.$header-color;
+}
+
+.subheader {
+    color: variables.$subheader-color;
+}
+
+.formInput {
+    background: variables.$color-white;
+    border: 2px solid rgba(84, 95, 125, 0.15);
+    border-radius: 5px;
+}
+
+.link, .passwordVisibilitySwitcher {
+    color: variables.$link-color;
+}
+
+.authButton {
+    background: variables.$button-bg-color;
+    border-radius: 8px;
+}

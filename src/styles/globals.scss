@@ -1,0 +1,21 @@
+@use 'variables';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 255, 255, 255;
+}
+
+@font-face {
+  font-family: variables.$primary-font;
+  src: url('/assets/fonts/Avenir Next LT W02 Regular.woff') format('woff');
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+  font-family: variables.$primary-font;
+}
