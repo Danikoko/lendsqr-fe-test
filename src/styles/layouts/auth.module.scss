@@ -1,24 +1,75 @@
 @use '../variables';
 
+$imageSectionPadding: theme('spacing.20');
+$formMobileSectionPadding: theme('spacing.10');
+$logoHeight: 36px;
+
+.imageContainer {
+    height: calc(100% - (#{$imageSectionPadding}*2) - $logoHeight);
+    .imageHolder {
+        margin-bottom: $logoHeight;
+    }
+}
+
+.formSection {
+    background: variables.$color-white;
+    box-shadow: 0px 15px 90px rgba(0, 0, 0, 0.03);
+    @media screen and (max-width: variables.$lg) {
+        height: calc(100vh - $logoHeight - ($formMobileSectionPadding*2));
+        box-shadow: none;
+    }
+}
+
 .header {
     color: variables.$header-color;
+    font-family: variables.$primary-font-bold;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 55px;
+    letter-spacing: -0.04em;
 }
 
 .subheader {
     color: variables.$subheader-color;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 27px;
 }
 
 .formInput {
     background: variables.$color-white;
     border: 2px solid rgba(84, 95, 125, 0.15);
     border-radius: 5px;
+    height: 50px;
+    text-indent: 15px;
+    -webkit-transition: 0.5s;
+    outline: none;
+    font-size: 14px;
+}
+
+.formInput:focus {
+    border: 2px solid rgba(variables.$button-bg-color, 0.5);
+}
+
+.formInput::-ms-reveal,
+.formInput::-ms-clear {
+    display: none;
 }
 
 .link, .passwordVisibilitySwitcher {
     color: variables.$link-color;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 12px;
+    letter-spacing: 0.1em;
 }
 
 .authButton {
+    color: variables.$color-white;
     background: variables.$button-bg-color;
     border-radius: 8px;
+    height: 48px;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 0.1em;
 }

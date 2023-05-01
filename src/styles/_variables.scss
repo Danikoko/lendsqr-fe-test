@@ -1,4 +1,5 @@
 $primary-font: 'Avenir Next';
+$primary-font-bold: 'Avenir Next Bold';
 $button-bg-color: #39CDCC;
 $color-white: #FFFFFF;
 
@@ -7,3 +8,10 @@ $header-color: #213F7D;
 $subheader-color: #545F7D;
 $link-color: #39CDCC;
 /** Variables for authentication pages */
+
+/** Media queries */
+$sm: 600px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+/** Media queries */

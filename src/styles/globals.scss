@@ -11,7 +11,12 @@
 
 @font-face {
   font-family: variables.$primary-font;
-  src: url('/assets/fonts/Avenir Next LT W02 Regular.woff') format('woff');
+  src: url('/assets/fonts/AvenirLTPro-Roman.woff') format('woff');
+}
+
+@font-face {
+  font-family: variables.$primary-font-bold;
+  src: url('/assets/fonts/AvenirLTPro-Black.woff') format('woff');
 }
 
 body {

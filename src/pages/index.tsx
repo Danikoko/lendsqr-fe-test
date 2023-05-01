@@ -1,12 +1,19 @@
 import AuthLayout from "@/layouts/auth";
-import styles from '../styles/pages/index.module.scss';
+import styles from '../styles/layouts/auth.module.scss';
+import Head from "next/head";
 
-export default function Home() {
+const Home = () => {
   return (
-    <AuthLayout>
+    <>
+      <Head>
+          <title>Home</title>
+      </Head>
       <main>
-        <h1 id={styles.header}>If this shows, then the layouts installation was successful 💯🔥</h1>
+          <h1 id={styles.header}>Home page</h1>
+          <h2 className="text-white">Hi</h2>
       </main>
-    </AuthLayout>
+    </>
   )
 }
+
+export default Home;
