@@ -23,4 +23,15 @@ body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
   font-family: variables.$primary-font;
+  outline: none;
+}
+
+input, select {
+  outline: none;
+  -webkit-transition: 0.5s;
+}
+
+input, select {
+  outline: none;
+  -webkit-transition: 0.5s;
 }

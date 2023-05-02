@@ -1,5 +1,5 @@
-import AuthLayout from "@/layouts/auth";
-import styles from '../styles/layouts/auth.module.scss';
+import DashboardLayout from "@/layouts/dashboard";
+import styles from '../styles/layouts/dashboard.module.scss';
 import Head from "next/head";
 
 const Home = () => {
@@ -8,10 +8,10 @@ const Home = () => {
       <Head>
           <title>Home</title>
       </Head>
-      <main>
+      <DashboardLayout>
           <h1 id={styles.header}>Home page</h1>
-          <h2 className="text-white">Hi</h2>
-      </main>
+          <h2>Hi</h2>
+      </DashboardLayout>
     </>
   )
 }

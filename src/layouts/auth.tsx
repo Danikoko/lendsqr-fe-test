@@ -1,3 +1,4 @@
+
 import styles from "@/styles/layouts/auth.module.scss";
 import Image from "next/image";
 import logo from "../../public/assets/images/auth/logo.svg";
