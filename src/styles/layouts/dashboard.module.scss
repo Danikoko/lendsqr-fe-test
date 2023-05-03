@@ -1,4 +1,10 @@
 @use '../variables';
+$link-hover-color: #39CDCC;
+
+$topBarLgMargin: theme('spacing.16');
+$topBarMargin: theme('spacing.8');
+$topBarLgHeight: 54.55px;
+$topBarHeight: 30px;
 
 .mainDashboard {
     background-color: variables.$dashboard-bg-color;;
@@ -31,4 +37,48 @@
             text-decoration: underline;
         }
     }
+}
+
+.mainBlueColor {
+    color: variables.$main-blue-color;
+}
+
+.sideNav {
+    margin-top: calc($topBarLgMargin + $topBarLgHeight);
+    height: calc(100vh - $topBarLgMargin - $topBarLgHeight);
+    overflow-y: scroll;
+    @media screen and (max-width: variables.$lg) {
+        margin-top: calc($topBarMargin + $topBarHeight);
+        height: calc(100vh - $topBarMargin - $topBarHeight);
+        overflow-y: scroll;
+    }
+}
+
+.mainSection {
+    margin-top: calc($topBarLgMargin + $topBarHeight);
+    @media screen and (max-width: variables.$lg) {
+        margin-top: calc($topBarMargin + $topBarHeight);
+    }
+}
+
+.sideNavList {
+    opacity: 0.7;
+    border-left: 3px solid variables.$color-white;
+}
+
+.sideNavActive {
+    opacity: 1;
+    border-left: 3px solid variables.$color-white;
+}
+
+.sideNavLinkList {
+    opacity: 0.7;
+    border-left: 3px solid variables.$color-white;
+    -webkit-transition: 0.2s;
+}
+
+.sideNavLinkActive, .sideNavLinkList:hover {
+    opacity: 1;
+    border-left: 3px solid $link-hover-color;
+    background-color: rgba($link-hover-color, 0.06);
 }

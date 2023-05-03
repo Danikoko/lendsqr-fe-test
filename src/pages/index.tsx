@@ -9,8 +9,10 @@ const Home = () => {
           <title>Home</title>
       </Head>
       <DashboardLayout>
-          <h1 id={styles.header}>Home page</h1>
-          <h2>Hi</h2>
+          <div className={`${styles.mainSection} w-4/5`}>
+            <h1 id={styles.header}>Home page</h1>
+            <h2>Hi</h2>
+          </div>
       </DashboardLayout>
     </>
   )
