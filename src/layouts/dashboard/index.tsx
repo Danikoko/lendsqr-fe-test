@@ -1,4 +1,4 @@
-import styles from "@/styles/layouts/dashboard.module.scss";
+import layoutStyles from "@/styles/layouts/dashboard.module.scss";
 import Image from "next/image";
 import logo from "../../../public/assets/images/dashboard/logo.svg";
 import TopSection from "./components/TopSection";
@@ -8,7 +8,7 @@ import { useState } from "react";
 const DashboardLayout = ({ children }: any) => {
     const [showingMenu, setShowingMenu] = useState(false);
     return (
-        <main className={styles.mainDashboard}>
+        <main className={layoutStyles.mainDashboard}>
             <TopSection 
             showingMenu={showingMenu}
             setShowingMenu={setShowingMenu} 

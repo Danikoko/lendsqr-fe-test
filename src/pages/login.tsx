@@ -1,5 +1,5 @@
 import AuthLayout from "@/layouts/auth";
-import styles from '../styles/layouts/auth.module.scss';
+import layoutStyles from '../styles/layouts/auth.module.scss';
 import Head from "next/head";
 import Link from "next/link";
 import { useState } from "react";
@@ -62,21 +62,21 @@ const Login = () => {
         <div className="lg:px-10 lg:pb-20 h-full flex flex-wrap">
           <div className="self-center w-full">
             <div>
-              <h2 className={`${styles.header} text-center lg:text-left mb-2`}>
+              <h2 className={`${layoutStyles.header} text-center lg:text-left mb-2`}>
                 Welcome!
               </h2>
-              <span className={`${styles.subheader} block text-center lg:text-left`}>
+              <span className={`${layoutStyles.subheader} block text-center lg:text-left`}>
                 Enter details to login.
               </span>
             </div>
             <div className="mt-12">
               <form onSubmit={logUserIn} action="#" method="post">
                 <div className="mb-6">
-                  <input onChange={handleEmailInput} type="text" placeholder="Email" className={`${styles.formInput} w-full`} />
+                  <input onChange={handleEmailInput} type="text" placeholder="Email" className={`${layoutStyles.formInput} w-full`} />
                 </div>
                 <div className="mb-6 relative">
-                  <input onChange={handlePasswordInput} type={state.showPassword ? 'password' : 'text'} placeholder="Password" className={`${styles.formInput} w-full`} />
-                  <span onClick={handleShowPassword} className={`${styles.link} absolute top-4 right-5 cursor-pointer`}>
+                  <input onChange={handlePasswordInput} type={state.showPassword ? 'password' : 'text'} placeholder="Password" className={`${layoutStyles.formInput} w-full`} />
+                  <span onClick={handleShowPassword} className={`${layoutStyles.link} absolute top-4 right-5 cursor-pointer`}>
                     {
                       state.showPassword
                       ? 'Show'
@@ -85,12 +85,12 @@ const Login = () => {
                   </span>
                 </div>
                 <div className="mb-10">
-                  <Link href="#" className={styles.link}>
+                  <Link href="#" className={layoutStyles.link}>
                     Forgot Password
                   </Link>
                 </div>
                 <div>
-                  <button className={`${styles.authButton} uppercase w-full`} type="submit">
+                  <button className={`${layoutStyles.authButton} uppercase w-full`} type="submit">
                     Log in
                   </button>
                 </div>

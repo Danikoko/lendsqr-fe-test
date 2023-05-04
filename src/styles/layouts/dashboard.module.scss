@@ -1,5 +1,6 @@
 @use '../variables';
 $link-hover-color: #39CDCC;
+$text-grey: #545F7D;
 
 $topBarLgMargin: theme('spacing.16');
 $topBarMargin: theme('spacing.8');
@@ -55,7 +56,7 @@ $topBarHeight: 30px;
 }
 
 .mainSection {
-    margin-top: calc($topBarLgMargin + $topBarHeight);
+    margin-top: calc($topBarLgMargin + $topBarLgHeight);
     @media screen and (max-width: variables.$lg) {
         margin-top: calc($topBarMargin + $topBarHeight);
     }
@@ -81,4 +82,40 @@ $topBarHeight: 30px;
     opacity: 1;
     border-left: 3px solid $link-hover-color;
     background-color: rgba($link-hover-color, 0.06);
+}
+
+.textGrey {
+    color: $text-grey;
+}
+
+.card {
+    background: variables.$color-white;
+    border: 1px solid rgba(33, 63, 125, 0.06);
+    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+    border-radius: 4px;
+}
+
+.showingFilter {
+    background-color: rgba(variables.$main-blue-color, 0.1);
+    border-radius: 4px;
+    width: 80px;
+    select {
+        background-color: transparent;
+    }
+}
+
+.invertImage {
+    transform: scaleX(-1);
+}
+
+.caretBlock {
+    background-color: rgba(variables.$main-blue-color, 0.1);
+    border-radius: 4px;
+}
+
+.paginationNumbers {
+    color: #979daf;
+    .activeNumber {
+        color: #545f7d;
+    }
 }

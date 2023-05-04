@@ -1,4 +1,4 @@
-import styles from "@/styles/layouts/dashboard.module.scss";
+import layoutStyles from "@/styles/layouts/dashboard.module.scss";
 import Image from "next/image";
 import briefcase from "../../../../public/assets/icons/sidemenu/briefcase.svg";
 import home from "../../../../public/assets/icons/sidemenu/home.svg";
@@ -17,9 +17,9 @@ const SideNavSection = ({showingMenu}: any) => {
             {
                 showingMenu
                 &&
-                <div className={`${styles.sideNav} block lg:hidden w-full lg:w-1/5 bg-white`}>
+                <div className={`${layoutStyles.sideNav} block lg:hidden w-full lg:w-1/5 bg-white`}>
                     <ul className="my-4">
-                        <li className={`${styles.sideNavList} ${styles.sideNavActive} px-8 py-5 cursor-pointer`}>
+                        <li className={`${layoutStyles.sideNavList} ${layoutStyles.sideNavActive} px-8 py-5 cursor-pointer`}>
                             <div className="flex flex-wrap">
                                 <div className="w-1/12 self-center">
                                     <div>
@@ -31,7 +31,7 @@ const SideNavSection = ({showingMenu}: any) => {
                                 </div>
                                 <div className="w-11/12">
                                     <div className="ml-2 self-center flex">
-                                        <span className={styles.mainBlueColor}>
+                                        <span className={layoutStyles.mainBlueColor}>
                                             Switch Organization
                                         </span>
                                         <Image
@@ -43,7 +43,7 @@ const SideNavSection = ({showingMenu}: any) => {
                                 </div>
                             </div>
                         </li>
-                        <li className={`${styles.sideNavList} px-8 py-5 cursor-pointer`}>
+                        <li className={`${layoutStyles.sideNavList} px-8 py-5 cursor-pointer`}>
                             <div className="flex flex-wrap">
                                 <div className="w-1/12 self-center">
                                     <div>
@@ -55,7 +55,7 @@ const SideNavSection = ({showingMenu}: any) => {
                                 </div>
                                 <div className="w-11/12">
                                     <div className="ml-2 self-center flex">
-                                        <span className={styles.mainBlueColor}>
+                                        <span className={layoutStyles.mainBlueColor}>
                                             Dashboard
                                         </span>
                                         {/* <Image
@@ -69,12 +69,12 @@ const SideNavSection = ({showingMenu}: any) => {
                         </li>
                     </ul>
                     <div>
-                        <span className={`${styles.mainBlueColor} px-8 text-xs`}>CUSTOMERS</span>
+                        <span className={`${layoutStyles.mainBlueColor} px-8 text-xs`}>CUSTOMERS</span>
                         <ul className="mt-2 mb-4">
                             {
                                 customersSideNavLinks.map((link: Link, index: number) => (
                                     <li 
-                                    className={`${styles.sideNavLinkList} px-8 py-3 cursor-pointer`}
+                                    className={`${layoutStyles.sideNavLinkList} px-8 py-3 cursor-pointer`}
                                     key={index}
                                     >
                                         <div className="flex flex-wrap">
@@ -88,7 +88,7 @@ const SideNavSection = ({showingMenu}: any) => {
                                             </div>
                                             <div className="w-11/12">
                                                 <div className="ml-2 self-center flex">
-                                                    <span className={styles.mainBlueColor}>
+                                                    <span className={layoutStyles.mainBlueColor}>
                                                         {link.name}
                                                     </span>
                                                 </div>
@@ -100,12 +100,12 @@ const SideNavSection = ({showingMenu}: any) => {
                         </ul>
                     </div>
                     <div>
-                        <span className={`${styles.mainBlueColor} px-8 text-xs`}>BUSINESSES</span>
+                        <span className={`${layoutStyles.mainBlueColor} px-8 text-xs`}>BUSINESSES</span>
                         <ul className="mt-2 mb-4">
                             {
                                 businessesSideNavLinks.map((link: Link, index: number) => (
                                     <li 
-                                    className={`${styles.sideNavLinkList} px-8 py-3 cursor-pointer`}
+                                    className={`${layoutStyles.sideNavLinkList} px-8 py-3 cursor-pointer`}
                                     key={index}
                                     >
                                         <div className="flex flex-wrap">
@@ -119,7 +119,7 @@ const SideNavSection = ({showingMenu}: any) => {
                                             </div>
                                             <div className="w-11/12">
                                                 <div className="ml-2 self-center flex">
-                                                    <span className={styles.mainBlueColor}>
+                                                    <span className={layoutStyles.mainBlueColor}>
                                                         {link.name}
                                                     </span>
                                                 </div>
@@ -131,12 +131,12 @@ const SideNavSection = ({showingMenu}: any) => {
                         </ul>
                     </div>
                     <div>
-                        <span className={`${styles.mainBlueColor} px-8 text-xs`}>SETTINGS</span>
+                        <span className={`${layoutStyles.mainBlueColor} px-8 text-xs`}>SETTINGS</span>
                         <ul className="mt-2 mb-4">
                             {
                                 settingsSideNavLinks.map((link: Link, index: number) => (
                                     <li 
-                                    className={`${styles.sideNavLinkList} px-8 py-3 cursor-pointer`}
+                                    className={`${layoutStyles.sideNavLinkList} px-8 py-3 cursor-pointer`}
                                     key={index}
                                     >
                                         <div className="flex flex-wrap">
@@ -150,7 +150,7 @@ const SideNavSection = ({showingMenu}: any) => {
                                             </div>
                                             <div className="w-11/12">
                                                 <div className="ml-2 self-center flex">
-                                                    <span className={styles.mainBlueColor}>
+                                                    <span className={layoutStyles.mainBlueColor}>
                                                         {link.name}
                                                     </span>
                                                 </div>
@@ -163,9 +163,9 @@ const SideNavSection = ({showingMenu}: any) => {
                     </div>
                 </div>
             }
-            <div className={`${styles.sideNav} hidden lg:block w-full lg:w-1/5 bg-white`}>
+            <div className={`${layoutStyles.sideNav} hidden lg:block w-full lg:w-1/5 bg-white fixed`}>
                 <ul className="my-4">
-                    <li className={`${styles.sideNavList} ${styles.sideNavActive} px-8 py-5 cursor-pointer`}>
+                    <li className={`${layoutStyles.sideNavList} ${layoutStyles.sideNavActive} px-8 py-5 cursor-pointer`}>
                         <div className="flex flex-wrap">
                             <div className="w-1/12 self-center">
                                 <div>
@@ -177,7 +177,7 @@ const SideNavSection = ({showingMenu}: any) => {
                             </div>
                             <div className="w-11/12">
                                 <div className="ml-2 self-center flex">
-                                    <span className={styles.mainBlueColor}>
+                                    <span className={layoutStyles.mainBlueColor}>
                                         Switch Organization
                                     </span>
                                     <Image
@@ -189,7 +189,7 @@ const SideNavSection = ({showingMenu}: any) => {
                             </div>
                         </div>
                     </li>
-                    <li className={`${styles.sideNavList} px-8 py-5 cursor-pointer`}>
+                    <li className={`${layoutStyles.sideNavList} px-8 py-5 cursor-pointer`}>
                         <div className="flex flex-wrap">
                             <div className="w-1/12 self-center">
                                 <div>
@@ -201,7 +201,7 @@ const SideNavSection = ({showingMenu}: any) => {
                             </div>
                             <div className="w-11/12">
                                 <div className="ml-2 self-center flex">
-                                    <span className={styles.mainBlueColor}>
+                                    <span className={layoutStyles.mainBlueColor}>
                                         Dashboard
                                     </span>
                                     {/* <Image
@@ -215,12 +215,12 @@ const SideNavSection = ({showingMenu}: any) => {
                     </li>
                 </ul>
                 <div>
-                    <span className={`${styles.mainBlueColor} px-8 text-xs`}>CUSTOMERS</span>
+                    <span className={`${layoutStyles.mainBlueColor} px-8 text-xs`}>CUSTOMERS</span>
                     <ul className="mt-2 mb-4">
                         {
                             customersSideNavLinks.map((link: Link, index: number) => (
                                 <li 
-                                className={`${styles.sideNavLinkList} px-8 py-3 cursor-pointer`}
+                                className={`${layoutStyles.sideNavLinkList} px-8 py-3 cursor-pointer`}
                                 key={index}
                                 >
                                     <div className="flex flex-wrap">
@@ -234,7 +234,7 @@ const SideNavSection = ({showingMenu}: any) => {
                                         </div>
                                         <div className="w-11/12">
                                             <div className="ml-2 self-center flex">
-                                                <span className={styles.mainBlueColor}>
+                                                <span className={layoutStyles.mainBlueColor}>
                                                     {link.name}
                                                 </span>
                                             </div>
@@ -246,12 +246,12 @@ const SideNavSection = ({showingMenu}: any) => {
                     </ul>
                 </div>
                 <div>
-                    <span className={`${styles.mainBlueColor} px-8 text-xs`}>BUSINESSES</span>
+                    <span className={`${layoutStyles.mainBlueColor} px-8 text-xs`}>BUSINESSES</span>
                     <ul className="mt-2 mb-4">
                         {
                             businessesSideNavLinks.map((link: Link, index: number) => (
                                 <li 
-                                className={`${styles.sideNavLinkList} px-8 py-3 cursor-pointer`}
+                                className={`${layoutStyles.sideNavLinkList} px-8 py-3 cursor-pointer`}
                                 key={index}
                                 >
                                     <div className="flex flex-wrap">
@@ -265,7 +265,7 @@ const SideNavSection = ({showingMenu}: any) => {
                                         </div>
                                         <div className="w-11/12">
                                             <div className="ml-2 self-center flex">
-                                                <span className={styles.mainBlueColor}>
+                                                <span className={layoutStyles.mainBlueColor}>
                                                     {link.name}
                                                 </span>
                                             </div>
@@ -277,12 +277,12 @@ const SideNavSection = ({showingMenu}: any) => {
                     </ul>
                 </div>
                 <div>
-                    <span className={`${styles.mainBlueColor} px-8 text-xs`}>SETTINGS</span>
+                    <span className={`${layoutStyles.mainBlueColor} px-8 text-xs`}>SETTINGS</span>
                     <ul className="mt-2 mb-4">
                         {
                             settingsSideNavLinks.map((link: Link, index: number) => (
                                 <li 
-                                className={`${styles.sideNavLinkList} px-8 py-3 cursor-pointer`}
+                                className={`${layoutStyles.sideNavLinkList} px-8 py-3 cursor-pointer`}
                                 key={index}
                                 >
                                     <div className="flex flex-wrap">
@@ -296,7 +296,7 @@ const SideNavSection = ({showingMenu}: any) => {
                                         </div>
                                         <div className="w-11/12">
                                             <div className="ml-2 self-center flex">
-                                                <span className={styles.mainBlueColor}>
+                                                <span className={layoutStyles.mainBlueColor}>
                                                     {link.name}
                                                 </span>
                                             </div>

@@ -1,4 +1,4 @@
-import styles from "@/styles/layouts/dashboard.module.scss";
+import layoutStyles from "@/styles/layouts/dashboard.module.scss";
 import Image from "next/image";
 import searchIcon from "../../../../public/assets/icons/search.svg";
 import notificationIcon from "../../../../public/assets/icons/notification-bell.svg";
@@ -13,27 +13,27 @@ import {
 
 const TopSection = ({logo, showingMenu, setShowingMenu}: any) => {
     return (
-        <div className={`${styles.topSection} py-4 px-2 lg:py-8 lg:px-8 fixed w-full z-10`}>
+        <div className={`${layoutStyles.topSection} py-4 px-2 lg:py-8 lg:px-8 fixed w-full z-10`}>
             <div className="flex flex-wrap">
                 <div className="w-1/2 lg:w-1/6 self-center">
                     <Image src={logo} alt="Lendsqr Logo" />
                 </div>
                 <div className="lg:w-2/6 hidden lg:block self-center">
-                    <div className="ml-24">
+                    <div className="ml-20">
                         <div className="w-full relative">
-                            <input className={`${styles.searchInput} w-full`} type="text" placeholder="Search for anything" />
+                            <input className={`${layoutStyles.searchInput} w-full`} type="text" placeholder="Search for anything" />
                             <div className="absolute top-0 right-0">
-                                <button className={`${styles.searchButton}`}>
+                                <button className={`${layoutStyles.searchButton}`}>
                                     <Image className="mx-auto" src={searchIcon} alt="Search icon" />
                                 </button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className={`${styles.rightHandSection} hidden lg:block w-3/4 lg:w-2/6 ml-auto self-center`}>
+                <div className={`${layoutStyles.rightHandSection} hidden lg:block w-3/4 lg:w-2/6 ml-auto self-center`}>
                     <div className="flex flex-wrap">
                         <div className="w-2/6 hidden lg:block self-center text-center ml-auto">
-                            <Link className={styles.link} href="#">
+                            <Link className={layoutStyles.link} href="#">
                                 Docs
                             </Link>
                         </div>
@@ -58,7 +58,7 @@ const TopSection = ({logo, showingMenu, setShowingMenu}: any) => {
                 <div className="block lg:hidden w-1/4 ml-auto text-right">
                     <FontAwesomeIcon 
                     onClick={() => setShowingMenu(!showingMenu)} 
-                    className={styles.mainBlueColor} 
+                    className={layoutStyles.mainBlueColor} 
                     icon={showingMenu ? faXmark : faBars} 
                     size="1x" 
                     />

@@ -1,0 +1,28 @@
+$inactive-color: #545F7D;
+$pending-color: #E9B200;
+$blacklisted-color: #E4033B;
+$active-color: #39CD62;
+
+.inactiveBadge {
+    border-radius: 100px;
+    background-color: rgba($inactive-color, 0.06);
+    color: $inactive-color;
+}
+
+.pendingBadge {
+    border-radius: 100px;
+    background-color: rgba($pending-color, 0.06);
+    color: $pending-color;
+}
+
+.blacklistedBadge {
+    border-radius: 100px;
+    background-color: rgba($blacklisted-color, 0.06);
+    color: $blacklisted-color;
+}
+
+.activeBadge {
+    border-radius: 100px;
+    background-color: rgba($active-color, 0.06);
+    color: $active-color;
+}
