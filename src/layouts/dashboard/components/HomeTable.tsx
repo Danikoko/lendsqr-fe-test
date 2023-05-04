@@ -7,8 +7,12 @@ import nextCaretIcon from "../../../../public/assets/icons/nextCaret.svg";
 import Image from "next/image";
 import Badge from "@/components/Badge";
 import { useEffect, useMemo, useState } from "react";
+import __CONSTANTS__ from "@/utils/constants";
 
 const HomeTable = ({users}: any) => {
+
+    const { getSubsetAroundValue } = __CONSTANTS__;
+
     /** Component state */
     const [state, setState] = useState({
         showingCount: 10,
@@ -16,7 +20,7 @@ const HomeTable = ({users}: any) => {
     });
     /** Component state */
 
-    const filteredUsers = useMemo(() => {
+    const filteredUsers = useMemo((): any[] => {
         return users.slice((state.showingCount * state.paginateCount) - state.showingCount, state.showingCount * state.paginateCount)
     }, [
         users,
@@ -24,18 +28,21 @@ const HomeTable = ({users}: any) => {
         state.paginateCount
     ]);
 
-    const paginationMaxNumber = useMemo(() => Math.ceil(users.length/state.showingCount), [
+    const paginationMaxNumber = useMemo((): number => Math.ceil(users.length/state.showingCount), [
         users,
         state.showingCount
     ]);
 
-    const paginationNumbers = useMemo(() => {
+    const paginationNumbers = useMemo((): number[] => {
         let allNumbers: any = [];
         for (let num = 1; num <= paginationMaxNumber; num++) {
             allNumbers.splice(allNumbers.length, 0, num);
         }
-        return allNumbers;
-    }, [paginationMaxNumber]);
+        return getSubsetAroundValue(allNumbers, state.paginateCount);
+    }, [
+        state.paginateCount,
+        paginationMaxNumber
+    ]);
 
     /** Methods */
     const handlePagination = (paginationNumber: number) => setState({
@@ -139,6 +146,24 @@ const HomeTable = ({users}: any) => {
                 </div>
                 <div className={`${layoutStyles.paginationNumbers} w-full lg:w-1/2 text-right self-center mt-4 lg:mt-0`}>
                     <div className="inline-flex self-center">
+                        <div className={`${layoutStyles.caretBlock} inline-block ${state.paginateCount !== paginationMaxNumber && 'cursor-pointer'} relative p-1 ml-2`}>
+                            <Image
+                            className={`${layoutStyles.invertImage} ${state.paginateCount === 1 && 'opacity-30'} absolute left-1`}
+                            src={nextCaretIcon}
+                            alt="Previous Caret"
+                            />
+                            <Image
+                            className={`${layoutStyles.invertImage} ${state.paginateCount === 1 && 'opacity-30'} absolute left-2`}
+                            src={nextCaretIcon}
+                            alt="Previous Caret"
+                            />
+                            <Image
+                            className={`${layoutStyles.invertImage} opacity-0`}
+                            onClick={() => state.paginateCount !== 1 && handlePagination(1)}
+                            src={nextCaretIcon}
+                            alt="Previous Caret"
+                            />
+                        </div>
                         <div className={`${layoutStyles.caretBlock} inline-block ${state.paginateCount !== 1 && 'cursor-pointer'} p-1 ml-2`}>
                             <Image
                             className={`${layoutStyles.invertImage} ${state.paginateCount === 1 && 'opacity-30'}`}
@@ -161,6 +186,24 @@ const HomeTable = ({users}: any) => {
                             <Image
                             className={`${state.paginateCount === paginationMaxNumber && 'opacity-30'}`}
                             onClick={() => state.paginateCount !== paginationMaxNumber && handlePagination(state.paginateCount+1)}
+                            src={nextCaretIcon}
+                            alt="Next Caret"
+                            />
+                        </div>
+                        <div className={`${layoutStyles.caretBlock} inline-block ${state.paginateCount !== paginationMaxNumber && 'cursor-pointer'} relative p-1 ml-2`}>
+                            <Image
+                            className={`${state.paginateCount === paginationMaxNumber && 'opacity-30'} absolute left-1`}
+                            src={nextCaretIcon}
+                            alt="Next Caret"
+                            />
+                            <Image
+                            className={`${state.paginateCount === paginationMaxNumber && 'opacity-30'} absolute left-2`}
+                            src={nextCaretIcon}
+                            alt="Next Caret"
+                            />
+                            <Image
+                            className={`opacity-0`}
+                            onClick={() => state.paginateCount !== paginationMaxNumber && handlePagination(paginationMaxNumber)}
                             src={nextCaretIcon}
                             alt="Next Caret"
                             />

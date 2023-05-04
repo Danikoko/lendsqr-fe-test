@@ -122,7 +122,24 @@ const CONSTANTS = {
             name: 'Audit Logs',
             icon: auditLogsIcon
         }
-    ] as Link[]
+    ] as Link[],
+    getSubsetAroundValue: (arr: number[], val: number): number[] => {
+        const index = arr.indexOf(val);
+        if (index === -1) return [];
+      
+        let startIndex = Math.max(0, index - 2);
+        let endIndex = Math.min(arr.length - 1, index + 2);
+      
+        if (endIndex - startIndex < 4) {
+          if (startIndex === 0) {
+            endIndex = Math.min(endIndex + (4 - (endIndex - startIndex)), arr.length - 1);
+          } else {
+            startIndex = Math.max(startIndex - (4 - (endIndex - startIndex)), 0);
+          }
+        }
+      
+        return arr.slice(startIndex, endIndex + 1);
+    }
 }
 
 export default CONSTANTS;

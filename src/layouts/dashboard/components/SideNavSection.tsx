@@ -74,7 +74,7 @@ const SideNavSection = ({showingMenu}: any) => {
                             {
                                 customersSideNavLinks.map((link: Link, index: number) => (
                                     <li 
-                                    className={`${layoutStyles.sideNavLinkList} px-8 py-3 cursor-pointer`}
+                                    className={`${ link.name.toLowerCase() === 'users' ? layoutStyles.sideNavLinkActive : layoutStyles.sideNavLinkList } px-8 py-3 cursor-pointer`}
                                     key={index}
                                     >
                                         <div className="flex flex-wrap">
@@ -220,7 +220,7 @@ const SideNavSection = ({showingMenu}: any) => {
                         {
                             customersSideNavLinks.map((link: Link, index: number) => (
                                 <li 
-                                className={`${layoutStyles.sideNavLinkList} px-8 py-3 cursor-pointer`}
+                                className={`${ link.name.toLowerCase() === 'users' ? layoutStyles.sideNavLinkActive : layoutStyles.sideNavLinkList } px-8 py-3 cursor-pointer`}
                                 key={index}
                                 >
                                     <div className="flex flex-wrap">
