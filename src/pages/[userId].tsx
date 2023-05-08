@@ -77,10 +77,7 @@ const UserById = () => {
 
   useEffect(() => {
     userId && fetchSingleUser();
-  }, [
-    userId,
-    fetchSingleUser
-  ]);
+  }, [userId]);
 
   return (
     <>

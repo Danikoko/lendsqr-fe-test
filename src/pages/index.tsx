@@ -101,7 +101,7 @@ const Home = () => {
 
   useEffect(() => {
     fetchUsers();
-  }, [fetchUsers]);
+  }, []);
 
   return (
     <>
