@@ -10,33 +10,38 @@ import usersWithLoanIcon from "../../public/assets/icons/users/usersWithLoan.svg
 import usersWithSavingsIcon from "../../public/assets/icons/users/usersWithSavings.svg";
 import UsersCardInfo from "@/components/UsersCardInfo";
 import HomeTable from "@/layouts/dashboard/components/HomeTable";
+import { useRouter } from "next/router";
 
 const Home = () => {
+  const router = useRouter();
   /** Component state */
-  const [users, setUsers] = useState([]);
+  const [state, setState] = useState({
+    users: [] as unknown[],
+    fetching: true as boolean
+  });
   /** Component state */
 
   const activeUsers = useMemo(() => {
-    return users.filter((user: any) => {
+    return state.users.filter((user: any) => {
       return new Date(user.lastActiveDate) > new Date(user.createdAt)
     });
-  }, [users]);
+  }, [state.users]);
 
   const usersWithLoans = useMemo(() => {
-    return users;
-  }, [users]);
+    return state.users;
+  }, [state.users]);
 
   const usersWithSavings = useMemo(() => {
-    return users.filter((user: any) => {
+    return state.users.filter((user: any) => {
       return parseFloat(user.accountBalance) > 0
     });
-  }, [users]);
+  }, [state.users]);
 
   const infoCards = useMemo(() => [
     {
       icon: usersIcon,
       title: 'Users',
-      count: users.length
+      count: state.users.length
     },
     {
       icon: activeUsersIcon,
@@ -54,7 +59,7 @@ const Home = () => {
       count: usersWithSavings.length
     }
   ], [
-    users,
+    state.users,
     activeUsers, 
     usersWithLoans, 
     usersWithSavings
@@ -62,17 +67,28 @@ const Home = () => {
 
   const { 
     API_URL,
-    ERROR_ALERT
+    ERROR_ALERT,
+    BAD_INTERNET_ALERT
   } = __CONSTANTS__;
 
   /** Method for fetching users */
+  const saveFetchedUsers = (users: any[] = []) => setState({
+    ...state,
+    users,
+    fetching: false
+  });
+
   const fetchUsers = async () => {
     try {
       const RESPONSE = await axios.get(`${API_URL}users`);
-      setUsers(RESPONSE.data);
+      saveFetchedUsers(RESPONSE.data);
     }
     catch (e) {
-      ERROR_ALERT('There was an issue with this request');
+      if (window.navigator.onLine === false) {
+        BAD_INTERNET_ALERT().then(() => router.push('/login'));
+      } else {
+        ERROR_ALERT('There was an issue with this request').then(() => router.push('/login'));
+      }
     }
   }
   /** Method for fetching users */
@@ -86,27 +102,28 @@ const Home = () => {
       <Head>
           <title>Home</title>
       </Head>
-      <DashboardLayout>
-          <div className={`${layoutStyles.mainSection} w-full lg:w-4/5 ml-auto`}>
-            <div className="px-2 pt-4 lg:px-12 lg:py-12">
-              <h2 className={`${layoutStyles.mainBlueColor} text-2xl`}>Users</h2>
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-4 lg:mt-8">
-                {
-                  infoCards.map((cardInfo: any, index: number) => (
-                    <UsersCardInfo
-                    key={index}
-                    cardInfo={cardInfo}
-                    />
-                  ))
-                }
-              </div>
-              <div className="mt-8">
-                <HomeTable 
-                users={users} 
-                />
-              </div>
+      <DashboardLayout
+      fetching={state.fetching}>
+        <div className={`${layoutStyles.mainSection} w-full lg:w-4/5 ml-auto`}>
+          <div className="px-2 pt-4 lg:px-12 lg:py-12">
+            <h2 className={`${layoutStyles.mainBlueColor} text-2xl`}>Users</h2>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-4 lg:mt-8">
+              {
+                infoCards.map((cardInfo: any, index: number) => (
+                  <UsersCardInfo
+                  key={index}
+                  cardInfo={cardInfo}
+                  />
+                ))
+              }
+            </div>
+            <div className="mt-8">
+              <HomeTable 
+              users={state.users} 
+              />
             </div>
           </div>
+        </div>
       </DashboardLayout>
     </>
   )

@@ -28,7 +28,7 @@ body {
 
 input, select {
   outline: none;
-  -webkit-transition: 0.5s;
+  -webkit-transition: variables.$transition-time;
 }
 
 @keyframes fadeIn {
@@ -38,4 +38,9 @@ input, select {
 
 input[type="date"]::-webkit-calendar-picker-indicator {
   display: none;
+}
+
+.loader-div {
+  height: 100vh; 
+  align-items: center;
 }

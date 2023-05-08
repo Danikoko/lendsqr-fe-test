@@ -130,3 +130,40 @@ $topBarHeight: 30px;
 .tRow {
     border-bottom: 1px solid rgba(variables.$main-blue-color, 0.1);
 }
+
+.redOutlineButton {
+    color: variables.$color-red;
+    border: 1px solid variables.$color-red;
+    border-radius: 8px;
+    transition: variables.$transition-time;
+    &:hover {
+        color: variables.$color-white;
+        background-color: variables.$color-red;
+        transition: variables.$transition-time;
+    }
+}
+
+.mainOutlineButton {
+    color: variables.$button-bg-color;
+    border: 1px solid variables.$button-bg-color;
+    border-radius: 8px;
+    transition: variables.$transition-time;
+    &:hover {
+        color: variables.$color-white;
+        background-color: variables.$button-bg-color;
+        transition: variables.$transition-time;
+    }
+}
+
+.profileLink {
+    border-bottom: 3px solid variables.$color-white;
+    &:hover {
+        color: variables.$button-bg-color;
+        border-bottom: 3px solid variables.$button-bg-color;
+    }
+}
+
+.profileLinkActive {
+    color: variables.$button-bg-color;
+    border-bottom: 3px solid variables.$button-bg-color;
+}

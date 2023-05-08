@@ -37,6 +37,14 @@ const CONSTANTS = {
             confirmButtonColor: "#39CDCC"
         });
     },
+    BAD_INTERNET_ALERT: async () => {
+        await Swal.fire({
+            title: "Oops!",
+            text: 'Please check your internet connectivity and retry.',
+            icon: "error",
+            confirmButtonColor: "#39CDCC"
+        });
+    },
     customersSideNavLinks: [
         {
             name: 'Users',
@@ -70,7 +78,7 @@ const CONSTANTS = {
             name: 'Karma',
             icon: karmaIcon
         }
-    ] as Link[],
+    ] as SideNavLink[],
     businessesSideNavLinks: [
         {
             name: 'Organization',
@@ -108,7 +116,7 @@ const CONSTANTS = {
             name: 'Reports',
             icon: reportsIcon
         }
-    ] as Link[],
+    ] as SideNavLink[],
     settingsSideNavLinks: [
         {
             name: 'Preferences',
@@ -122,7 +130,15 @@ const CONSTANTS = {
             name: 'Audit Logs',
             icon: auditLogsIcon
         }
-    ] as Link[],
+    ] as SideNavLink[],
+    profileLinks: [
+        'General Details',
+        'Documents',
+        'Bank Details',
+        'Loans',
+        'Savings',
+        'App and System',
+    ] as string[],
     getSubsetAroundValue: (arr: number[], val: number): number[] => {
         const index = arr.indexOf(val);
         if (index === -1) return [];

@@ -72,7 +72,7 @@ const SideNavSection = ({showingMenu}: any) => {
                         <span className={`${layoutStyles.mainBlueColor} px-8 text-xs`}>CUSTOMERS</span>
                         <ul className="mt-2 mb-4">
                             {
-                                customersSideNavLinks.map((link: Link, index: number) => (
+                                customersSideNavLinks.map((link: SideNavLink, index: number) => (
                                     <li 
                                     className={`${ link.name.toLowerCase() === 'users' ? layoutStyles.sideNavLinkActive : layoutStyles.sideNavLinkList } px-8 py-3 cursor-pointer`}
                                     key={index}
@@ -103,7 +103,7 @@ const SideNavSection = ({showingMenu}: any) => {
                         <span className={`${layoutStyles.mainBlueColor} px-8 text-xs`}>BUSINESSES</span>
                         <ul className="mt-2 mb-4">
                             {
-                                businessesSideNavLinks.map((link: Link, index: number) => (
+                                businessesSideNavLinks.map((link: SideNavLink, index: number) => (
                                     <li 
                                     className={`${layoutStyles.sideNavLinkList} px-8 py-3 cursor-pointer`}
                                     key={index}
@@ -134,7 +134,7 @@ const SideNavSection = ({showingMenu}: any) => {
                         <span className={`${layoutStyles.mainBlueColor} px-8 text-xs`}>SETTINGS</span>
                         <ul className="mt-2 mb-4">
                             {
-                                settingsSideNavLinks.map((link: Link, index: number) => (
+                                settingsSideNavLinks.map((link: SideNavLink, index: number) => (
                                     <li 
                                     className={`${layoutStyles.sideNavLinkList} px-8 py-3 cursor-pointer`}
                                     key={index}
@@ -218,7 +218,7 @@ const SideNavSection = ({showingMenu}: any) => {
                     <span className={`${layoutStyles.mainBlueColor} px-8 text-xs`}>CUSTOMERS</span>
                     <ul className="mt-2 mb-4">
                         {
-                            customersSideNavLinks.map((link: Link, index: number) => (
+                            customersSideNavLinks.map((link: SideNavLink, index: number) => (
                                 <li 
                                 className={`${ link.name.toLowerCase() === 'users' ? layoutStyles.sideNavLinkActive : layoutStyles.sideNavLinkList } px-8 py-3 cursor-pointer`}
                                 key={index}
@@ -249,7 +249,7 @@ const SideNavSection = ({showingMenu}: any) => {
                     <span className={`${layoutStyles.mainBlueColor} px-8 text-xs`}>BUSINESSES</span>
                     <ul className="mt-2 mb-4">
                         {
-                            businessesSideNavLinks.map((link: Link, index: number) => (
+                            businessesSideNavLinks.map((link: SideNavLink, index: number) => (
                                 <li 
                                 className={`${layoutStyles.sideNavLinkList} px-8 py-3 cursor-pointer`}
                                 key={index}
@@ -280,7 +280,7 @@ const SideNavSection = ({showingMenu}: any) => {
                     <span className={`${layoutStyles.mainBlueColor} px-8 text-xs`}>SETTINGS</span>
                     <ul className="mt-2 mb-4">
                         {
-                            settingsSideNavLinks.map((link: Link, index: number) => (
+                            settingsSideNavLinks.map((link: SideNavLink, index: number) => (
                                 <li 
                                 className={`${layoutStyles.sideNavLinkList} px-8 py-3 cursor-pointer`}
                                 key={index}

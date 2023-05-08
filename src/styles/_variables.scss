@@ -2,6 +2,7 @@ $primary-font: 'Avenir Next';
 $primary-font-bold: 'Avenir Next Bold';
 $button-bg-color: #39CDCC;
 $color-white: #FFFFFF;
+$color-red: #E4033B;
 
 /** Variables for authentication pages */
 $header-color: #213F7D;
@@ -20,3 +21,5 @@ $md: 768px;
 $lg: 992px;
 $xl: 1200px;
 /** Media queries */
+
+$transition-time: 0.5s;
