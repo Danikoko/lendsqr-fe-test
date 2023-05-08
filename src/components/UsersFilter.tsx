@@ -35,7 +35,7 @@ const UsersFilter = ({
                             <select placeholder="Select" onChange={handleOrganizationFilter} className={`w-full cursor-pointer relative z-10 py-2 px-3 appearance-none`}>
                                 <option value={0}>All organizations</option>
                                 {
-                                    allOrganizations.map((organization: any) => <option value={organization}>{organization}</option>)
+                                    allOrganizations.map(((organization: any, index: number) => <option key={`organization-${index}`} value={organization}>{organization}</option>))
                                 }
                             </select>
                             <Image 
@@ -95,7 +95,7 @@ const UsersFilter = ({
                             <select placeholder="Select" onChange={handleStatusFilter} className={`w-full cursor-pointer relative z-10 py-2 px-3 appearance-none`}>
                                 <option value={0}>All statuses</option>
                                 {
-                                    statuses.map((status: any) => <option value={status}>{status}</option>)
+                                    statuses.map((status: any, index: any) => <option key={`status-${index}`} value={status}>{status}</option>)
                                 }
                             </select>
                             <Image 

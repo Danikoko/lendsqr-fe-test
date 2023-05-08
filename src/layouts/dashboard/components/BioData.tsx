@@ -39,7 +39,7 @@ const BioData = ({ userDetails, sortIncome, sortAmount }: any) => {
                         </div>
                         <div className="mb-4">
                             <span className="uppercase block opacity-50 text-xs mb-2">Type of Residence</span>
-                            <span className="block text-sm">Parent's Apartment</span>
+                            <span className="block text-sm">Parent&apos;s Apartment</span>
                         </div>
                     </div>
                 </div>

@@ -3,7 +3,7 @@ import layoutStyles from '../styles/layouts/dashboard.module.scss';
 import Head from "next/head";
 import axios from "axios";
 import __CONSTANTS__ from "@/utils/constants";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import usersIcon from "../../public/assets/icons/users/users.svg";
 import activeUsersIcon from "../../public/assets/icons/users/activeUsers.svg";
 import usersWithLoanIcon from "../../public/assets/icons/users/usersWithLoan.svg";
@@ -72,13 +72,13 @@ const Home = () => {
   } = __CONSTANTS__;
 
   /** Method for fetching users */
-  const saveFetchedUsers = (users: any[] = []) => setState({
+  const saveFetchedUsers = useCallback((users: any[] = []) => setState({
     ...state,
     users,
     fetching: false
-  });
+  }), [state]);
 
-  const fetchUsers = async () => {
+  const fetchUsers = useCallback(async () => {
     try {
       const RESPONSE = await axios.get(`${API_URL}users`);
       saveFetchedUsers(RESPONSE.data);
@@ -90,12 +90,18 @@ const Home = () => {
         ERROR_ALERT('There was an issue with this request').then(() => router.push('/login'));
       }
     }
-  }
+  }, [
+    saveFetchedUsers,
+    router,
+    API_URL,
+    BAD_INTERNET_ALERT,
+    ERROR_ALERT
+  ]);
   /** Method for fetching users */
 
   useEffect(() => {
     fetchUsers();
-  }, []);
+  }, [fetchUsers]);
 
   return (
     <>

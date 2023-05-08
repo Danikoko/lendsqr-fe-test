@@ -3,7 +3,7 @@ import layoutStyles from '../styles/layouts/dashboard.module.scss';
 import Head from "next/head";
 import axios from "axios";
 import __CONSTANTS__ from "@/utils/constants";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import BackButton from "@/components/BackButton";
 import ProfileCard from "@/layouts/dashboard/components/ProfileCard";
 import BioData from "@/layouts/dashboard/components/BioData";
@@ -33,14 +33,14 @@ const UserById = () => {
     activeView: view
   });
 
-  const saveUserDetails = (userDetails: unknown = {}) => setState({
+  const saveUserDetails = useCallback((userDetails: unknown = {}) => setState({
     ...state,
     userDetails,
     fetching: false
-  });
+  }), [state]);
 
   /** Method for fetching users */
-  const fetchSingleUser = async () => {
+  const fetchSingleUser = useCallback(async () => {
     try {
       const RESPONSE = await axios.get(`${API_URL}users/${userId}`);
       saveUserDetails(RESPONSE.data);
@@ -52,7 +52,14 @@ const UserById = () => {
         ERROR_ALERT('There was an issue with this request').then(() => router.push('/login'));
       }
     }
-  }
+  }, [
+    saveUserDetails,
+    userId,
+    router,
+    API_URL,
+    BAD_INTERNET_ALERT,
+    ERROR_ALERT
+  ]);
   /** Method for fetching users */
 
   const currency = useMemo(() => {
@@ -60,8 +67,6 @@ const UserById = () => {
     ? state.userDetails?.profile.currency
     : '#'
   }, [state.userDetails]);
-
-  console.log(state.userDetails?.profile.currency)
 
   const sortAmount = (amount: string) => `${currency} ${amount}`;
 
@@ -72,7 +77,10 @@ const UserById = () => {
 
   useEffect(() => {
     userId && fetchSingleUser();
-  }, [userId]);
+  }, [
+    userId,
+    fetchSingleUser
+  ]);
 
   return (
     <>
@@ -129,7 +137,7 @@ const UserById = () => {
                     </div>
                   : state.activeView === 'Savings'
                   ? <div className={`${layoutStyles.card} p-5`}>
-                      <h2 className="text-2xl text-center">Well, I'd be <span className="font-bold">saving</span> your organization front-end headaches if I&apos;m hired. Get it? 😭💔</h2>
+                      <h2 className="text-2xl text-center">Well, I&apos;d be <span className="font-bold">saving</span> your organization front-end headaches if I&apos;m hired. Get it? 😭💔</h2>
                     </div>
                   : <div className={`${layoutStyles.card} p-5`}>
                       <h2 className="text-2xl text-center">If I entertained you, check me out <a className={`${layoutStyles.mainBlueColor} font-bold underline`} href="https://danikoko.com" target="_blank">here</a>. If not, checkout <a className={`${layoutStyles.mainBlueColor} font-bold underline`} href="https://danikoko.hashnode.dev" target="_blank">my blog</a>. Or do both if you&apos;re a legend 💯🔥</h2>

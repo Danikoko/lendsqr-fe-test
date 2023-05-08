@@ -36,7 +36,7 @@ const ProfileCard = ({ updateActiveView, activeView, userDetails, sortAmount }: 
                             </div>
                             <div className="w-1/3 self-center text-center">
                                 <div className={`${layoutStyles.mainBlueColor} border-r-2 border-l-2 p-4`}>
-                                    <span>User's Tier</span>
+                                    <span>User&apos;s Tier</span>
                                     <div>
                                         <Image
                                         className="inline-block mr-1"

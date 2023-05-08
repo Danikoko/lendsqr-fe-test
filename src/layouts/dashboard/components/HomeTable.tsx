@@ -8,7 +8,7 @@ import blacklistIcon from "../../../../public/assets/icons/blacklist.svg";
 import activateIcon from "../../../../public/assets/icons/activate.svg";
 import Image from "next/image";
 import Badge from "@/components/Badge";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import __CONSTANTS__ from "@/utils/constants";
 import UsersFilter from "@/components/UsersFilter";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -49,6 +49,7 @@ const HomeTable = ({users}: any) => {
         }
         return getSubsetAroundValue(allNumbers, state.paginateCount);
     }, [
+        getSubsetAroundValue,
         state.paginateCount,
         paginationMaxNumber
     ]);
@@ -145,7 +146,7 @@ const HomeTable = ({users}: any) => {
         return formattedDate;
     };
 
-    const paginateUsers = (paginateNumber: number) => {
+    const paginateUsers = useCallback((paginateNumber: number) => {
         const newUsers: any[] = users.slice((state.showingCount * paginateNumber) - state.showingCount, state.showingCount * paginateNumber);
         const filteredUsers: any[] = newUsers.map((user: any) => {
             return {
@@ -158,7 +159,10 @@ const HomeTable = ({users}: any) => {
             paginateCount: paginateNumber,
             filteredUsers
         });
-    }
+    }, [
+        state,
+        users
+    ]);
 
     const showOptions = (index: number) => {
         const newFilteredUsers: any[] = [...state.filteredUsers];
@@ -177,7 +181,11 @@ const HomeTable = ({users}: any) => {
         });
     }
     /** Methods */
-    useEffect(() => paginateUsers(state.paginateCount), [users])
+    useEffect(() => paginateUsers(state.paginateCount), [
+        users, 
+        paginateUsers,
+        state.paginateCount
+    ]);
     return (
         <>
         <div className={`${layoutStyles.card} flex flex-col overflow-x-auto`}>
