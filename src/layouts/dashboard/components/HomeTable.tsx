@@ -181,11 +181,7 @@ const HomeTable = ({users}: any) => {
         });
     }
     /** Methods */
-    useEffect(() => paginateUsers(state.paginateCount), [
-        users, 
-        paginateUsers,
-        state.paginateCount
-    ]);
+    useEffect(() => paginateUsers(state.paginateCount), []);
     return (
         <>
         <div className={`${layoutStyles.card} flex flex-col overflow-x-auto`}>

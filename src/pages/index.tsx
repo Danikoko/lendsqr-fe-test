@@ -17,7 +17,8 @@ const Home = () => {
   /** Component state */
   const [state, setState] = useState({
     users: [] as unknown[],
-    fetching: true as boolean
+    fetching: true as boolean,
+    renderPage: false as boolean
   });
   /** Component state */
 
@@ -100,7 +101,11 @@ const Home = () => {
   /** Method for fetching users */
 
   useEffect(() => {
-    fetchUsers();
+    if (localStorage.getItem('goToDashboard') !== 'true') {
+      router.push('/login');
+    } else {
+      fetchUsers();
+    }
   }, []);
 
   return (

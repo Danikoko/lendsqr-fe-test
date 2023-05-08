@@ -4,8 +4,6 @@ import logo from "../../../public/assets/images/dashboard/logo.svg";
 import TopSection from "./components/TopSection";
 import SideNavSection from "./components/SideNavSection";
 import { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 const DashboardLayout = ({ children, fetching }: any) => {
     const [showingMenu, setShowingMenu] = useState(false);
@@ -14,12 +12,10 @@ const DashboardLayout = ({ children, fetching }: any) => {
             {
                 fetching
                 ?   <div className="flex loader-div">
-                        <FontAwesomeIcon 
-                        icon={faSpinner} 
-                        spin={true}
-                        size="4x"
-                        className="mx-auto"
-                        color="#213F7D"
+                        <Image
+                        className="text-center mx-auto animate-pulse w-1/3"
+                        src={logo}
+                        alt="Logo"
                         />
                     </div>
                 :   <>
