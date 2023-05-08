@@ -1,0 +1,35 @@
+@use '../variables';
+
+.card {
+    border: 1px solid rgba(variables.$main-blue-color, 0.14);
+    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+    border-radius: 4px;
+    color: variables.$main-blue-color;
+    background-color: variables.$color-white;
+}
+
+.formGroup {
+    border: 1px solid rgba(variables.$main-blue-color, 0.14);
+    background-color: variables.$color-white;
+    border-radius: 8px;
+    color: variables.$main-blue-color;
+    select, input {
+        background-color: transparent;
+    }
+}
+
+.resetButton {
+    height: 40px;
+    background-color: variables.$color-white;
+    color: variables.$main-blue-color;
+    border-radius: 8px;
+    border: 1px solid variables.$main-blue-color;
+}
+
+.filterButton {
+    height: 40px;
+    background-color: variables.$button-bg-color;
+    color: variables.$color-white;
+    border-radius: 8px;
+    border: 1px solid variables.$button-bg-color;
+}

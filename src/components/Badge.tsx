@@ -1,9 +1,21 @@
 import componentStyles from "../styles/components/badge.module.scss";
 
-const Badge = ({status}: any) => {
+const Badge = ({status: isActive}: any) => {
     return (
-        <div className={`${componentStyles.inactiveBadge} px-4 py-2 inline-block`}>
-            <span>Inactive</span>
+        <div className={`${
+            isActive === true
+            ? componentStyles.activeBadge
+            : componentStyles.inactiveBadge
+        } px-4 py-2 inline-block`}>
+            <span>
+                {
+                    `${
+                        isActive === true
+                        ? 'Active'
+                        : 'Inactive'
+                    }`
+                }
+            </span>
         </div>
     );
 }

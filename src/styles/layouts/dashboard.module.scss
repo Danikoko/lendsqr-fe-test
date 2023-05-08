@@ -93,6 +93,13 @@ $topBarHeight: 30px;
     border: 1px solid rgba(33, 63, 125, 0.06);
     box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
     border-radius: 4px;
+    ul li:hover {
+        background-color: rgba($link-hover-color, 0.06);
+    }
+}
+
+.dropdownCard {
+    width: 150px;
 }
 
 .showingFilter {
@@ -118,4 +125,8 @@ $topBarHeight: 30px;
     .activeNumber {
         color: #545f7d;
     }
+}
+
+.tRow {
+    border-bottom: 1px solid rgba(variables.$main-blue-color, 0.1);
 }
